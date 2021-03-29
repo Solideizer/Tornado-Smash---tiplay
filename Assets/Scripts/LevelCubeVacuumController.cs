@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Managers;
 using UnityEngine;
 public class LevelCubeVacuumController : MonoBehaviour
 {
@@ -60,6 +61,7 @@ public class LevelCubeVacuumController : MonoBehaviour
 
     private void TriggerShrink ()
     {
+        AudioManager.PlaySound ("collect");
         transform.DOScale (0.03f, shrinkSpeed).SetDelay (0.1f).OnComplete (() =>
         {
             GameManager.instance.HandleObjectCount ();
